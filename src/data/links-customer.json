@@ -18,5 +18,10 @@
     "id": 3,
     "label": "Documentaries",
     "url": "/content/documentaries"
+  },
+  {
+    "id": 4,
+    "label": "Create new content",
+    "url": "/create-content"
   }
 ]

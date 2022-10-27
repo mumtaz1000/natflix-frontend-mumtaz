@@ -1,5 +1,5 @@
 // Fake data (replace this with a real fetch)
-import fakeFetch from "scripts/fakeFetch";
+//import fakeFetch from "scripts/fakeFetch";
 
 // Node modules
 import { useParams } from "react-router-dom";
@@ -24,13 +24,14 @@ export default function Content() {
   const [data, setData] = useState(new Array<iContent>());
 
   // Properties
-  const endPoint = "content/";
+  const endPoint = "http://localhost:8080/api/content";
 
   // Methods
   useEffect(() => {
     setStatus(eStatus.LOADING);
-    fakeFetch(endPoint + code + "/")
-      .then((response) => onSuccess(response.data))
+    fetch(endPoint)
+      .then((response) => response.json())
+      .then((data) => onSuccess(data))
       .catch((error) => onFailure(error));
   }, [code]);
 

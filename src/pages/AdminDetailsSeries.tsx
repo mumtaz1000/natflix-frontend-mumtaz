@@ -1,5 +1,5 @@
 // Fake data (replace this with a real fetch)
-import fakeFetch from "scripts/fakeFetch";
+//import fakeFetch from "scripts/fakeFetch";
 
 // Node modules
 import { useEffect, useState } from "react";
@@ -33,7 +33,8 @@ export default function AdminDetailSeries() {
 
   // Methods
   useEffect(() => {
-    fakeFetch(endPoint, code)
+    fetch(endPoint)
+    .then((response) => response.json())
       .then((response) => onSuccess(response.data))
       .catch((error) => onFailure(error));
   }, []);

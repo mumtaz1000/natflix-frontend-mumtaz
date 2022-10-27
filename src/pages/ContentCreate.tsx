@@ -1,33 +1,25 @@
-// Fake data (replace this with a real fetch)
-//import fakeFetch from "scripts/fakeFetch";
-
 // Node modules
 import { useEffect, useState } from "react";
 
 // Project files
-import BannerHome from "components/HeroHome";
-import ContainerCards from "components/ListCards";
 import NavigationBar from "components/NavigationBar";
 import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
 import eStatus from "interfaces/eStatus";
 import iContent from "interfaces/iContent";
+import ContentCreateForm from 'components/ContentCreateForm';
 
-export default function Home() {
+export default function ContentCreate() {
   // Local state
-  const [status, setStatus] = useState(eStatus.LOADING);
+  
   const [data, setData] = useState(new Array<iContent>());
-
+  const [status, setStatus] = useState(eStatus.LOADING);
   // Properties
-  const endPoint = "http://localhost:8080/api/content";
-  const series = data.filter((item) => item.type_id === 1);
-  const movies = data.filter((item) => item.type_id === 2);
-  const documentaries = data.filter((item) => item.type_id === 3);
-
+  const END_POINT = "http://localhost:8080/api/content";
   // Methods
   useEffect(() => {
-    fetch(endPoint)
+    fetch(END_POINT)
       .then((response) => response.json())
       .then((data) => onSuccess(data))
       .then(() => console.log("Hello!"))
@@ -40,22 +32,19 @@ export default function Home() {
   }
 
   function onFailure(error: string) {
-    console.error(error);
+    console.error("COULD NOT DATA ");
     setStatus(eStatus.ERROR);
   }
-
   // Safeguards
   if (status === eStatus.LOADING) return <StatusLoading />;
   if (status === eStatus.ERROR) return <StatusError />;
   if (data.length === 0) return <StatusEmpty />;
 
   return (
-    <div id="home">
+    <div id="create-content">
       <NavigationBar />
-      <BannerHome item={data[0]} />
-      <ContainerCards title="Series" data={series} />
-      <ContainerCards title="Movies" data={movies} />
-      <ContainerCards title="Documentaries" data={documentaries} />
+      <ContentCreateForm endpoint={END_POINT} />
     </div>
   );
 }
+

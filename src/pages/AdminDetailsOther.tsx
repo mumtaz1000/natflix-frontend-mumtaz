@@ -1,5 +1,5 @@
 // Fake data (replace this with a real fetch)
-import fakeFetch from "scripts/fakeFetch";
+//import fakeFetch from "scripts/fakeFetch";
 
 // Node modules
 import { FormEvent, useEffect, useState } from "react";
@@ -26,7 +26,8 @@ export default function AdminDetailsOther() {
 
   // Methods
   useEffect(() => {
-    fakeFetch(endPoint, code)
+    fetch(endPoint)
+    .then((response) => response.json())
       .then((response) => onSuccess(response.data))
       .catch((error) => onFailure(error));
   }, []);
@@ -43,7 +44,8 @@ export default function AdminDetailsOther() {
 
   function onSubmit(event: FormEvent) {
     event.preventDefault();
-    fakeFetch(endPoint + "update/", data)
+    fetch(endPoint + "update/")
+    .then((response) => response.json())
       .then((response) => alert(response.data))
       .catch(onFailure);
   }

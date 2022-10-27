@@ -11,6 +11,7 @@ import Content from "pages/Content"
 import Home from "pages/Home";
 import NotFound from "pages/NotFound";
 import VideoPlayer from "pages/VideoPlayer";
+import ContentCreate from "pages/ContentCreate";
 import { ModalProvider } from "state/ModalContext";
 import "styles/style.css";
 
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/admin-content/:code" element={<AdminContent />} />
             <Route path="/admin-details-other/:code" element={<AdminDetailsOther />} />
             <Route path="/admin-details-series/:code" element={<AdminDetailsSeries />} />
+            <Route path="/create-content" element={<ContentCreate />} />
             <Route path="/admin" element={<Admin />} />
           </Routes>
           {/* To handle the modal/popups of the website */}
