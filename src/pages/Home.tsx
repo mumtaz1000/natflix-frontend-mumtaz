@@ -49,13 +49,12 @@ export default function Home() {
   if (status === eStatus.ERROR) return <StatusError />;
   if (data.length === 0) return <StatusEmpty />;
 
+  const Cards = data.map((item) => <ul><li key={item.id}>{item.title}</li></ul>);
   return (
     <div id="home">
       <NavigationBar />
       <BannerHome item={data[0]} />
-      <ContainerCards title="Series" data={series} />
-      <ContainerCards title="Movies" data={movies} />
-      <ContainerCards title="Documentaries" data={documentaries} />
+      {Cards}
     </div>
   );
 }

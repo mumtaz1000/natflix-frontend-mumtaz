@@ -12,7 +12,6 @@ import ContentCreateForm from 'components/ContentCreateForm';
 
 export default function ContentCreate() {
   // Local state
-  
   const [data, setData] = useState(new Array<iContent>());
   const [status, setStatus] = useState(eStatus.LOADING);
   // Properties

@@ -6,22 +6,17 @@
   },
   {
     "id": 1,
-    "label": "Series",
-    "url": "/content/series"
+    "label": "Create new content",
+    "url": "/create-content"
   },
   {
     "id": 2,
-    "label": "Movies",
-    "url": "/content/movies"
+    "label": "Update content",
+    "url": "/update-content"
   },
   {
     "id": 3,
-    "label": "Documentaries",
-    "url": "/content/documentaries"
-  },
-  {
-    "id": 4,
-    "label": "Create new content",
-    "url": "/create-content"
+    "label": "Delete content",
+    "url": "/delete-content"
   }
 ]
