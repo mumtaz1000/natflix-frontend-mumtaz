@@ -23,7 +23,7 @@ export default function FormUpdate({ endPoint, fields }: iProps) {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    fakeFetch(endPoint + "create/", form)
+    fetch(endPoint + "create/", form)
       .then(onSuccess)
       .catch((error) => onFailure(error));
   }

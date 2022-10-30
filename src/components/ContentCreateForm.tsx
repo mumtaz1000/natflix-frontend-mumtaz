@@ -52,7 +52,9 @@ function onSuccess(data: iContent[]) {
   }
 
   return (
-    <form onSubmit={(event) => onSubmit(event)}>
+    <form onSubmit={(event) => onSubmit(event)}
+    method="post"
+    encType="multipart/form-data">
       <h1>Create new content</h1>
       <input type="text" 
       placeholder='Title'
@@ -74,10 +76,9 @@ function onSuccess(data: iContent[]) {
       value={summary}
       onChange={(event) => setSummary(event.target.value)}/>
 
-    <input type="text" 
-      placeholder='logoUrl'
-      value={logoUrl}
-      onChange={(event) => setLogoUrl(event.target.value)}/>
+    <input type="file" 
+      name='logoUrl'
+      accept="image/png, image/jpeg" />
 
 <input type="text" 
       placeholder='bannerUrl'
